@@ -6,8 +6,31 @@ Given two arrays, write a function to compute their intersection.
 
 Example:
 Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2, 2].
+'''
+
+class Solution(object):
+    def intersect(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        nums1.sort()
+        nums2.sort()
+        result = []
+        while nums1 and nums2:
+            if nums2[0] == nums1[0]:
+                result.append(nums2.pop(0))
+                nums1.pop(0)
+            else:
+                if nums2[0] > nums1[0]:
+                    nums1.pop(0)
+                else:
+                    nums2.pop(0)
+        return result
 
 '''
+方法二
 
 class Solution(object):
     def intersect(self, nums1, nums2):
@@ -33,6 +56,9 @@ class Solution(object):
                     res.append(key)
 
         return res
+'''
+
+
 
 '''
 Test:
