@@ -20,7 +20,7 @@ class Solution(object):
         else:
             return False
 
-    def isAngram2(self, s, t):
+    def isAnagram2(self, s, t):
         if set(s) != set(t):
             return False
         else:
@@ -32,5 +32,5 @@ class Solution(object):
 solution = Solution()
 s = "anagram"
 t = "nagaram"
-c = solution.isAngram2(s, t)
+c = solution.isAnagram2(s, t)
 print c
