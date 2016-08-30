@@ -19,6 +19,7 @@ class Solution(object):
         arr = sorted(arr)
         return arr[k-1]
 
+
 class Solution2(object):
     def kthSmallest(self, matrix, k):
         result, heap = None, []
