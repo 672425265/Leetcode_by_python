@@ -21,8 +21,10 @@ def quickSort(nums, start, end):
 
             left += 1
             right -= 1
+    quickSort(nums, start, right)
+    quickSort(nums, left, end)
 
 
-nums = [2,1,3]
-quickSort(nums,0, 2)
+nums = [2,9,3,1,6]
+quickSort(nums,0,4)
 print nums
