@@ -7,15 +7,13 @@ class ListNode:
 def nonrecurse(head):
     if head is None or head.next is None:
         return head
-    pre = None
-    cur = head
-    while cur:
-        h = cur
-        tmp = cur.next
-        cur.next = pre
-        pre = cur
-        cur = tmp
-    return h
+    newhead = None
+    while head:
+        temp = head.next
+        head.next = newhead
+        newhead = head
+        head = temp
+    return newhead
 
 
 def recurse(head):
@@ -33,7 +31,7 @@ p3 = ListNode(3)
 head.next = p1
 p1.next = p2
 p2.next = p3
-p = recurse(head)   # 输出链表 4->3->2->1->None
+p = nonrecurse(head)   # 输出链表 4->3->2->1->None
 while p:
     print p.val
     p = p.next
