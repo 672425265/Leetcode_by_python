@@ -1,6 +1,6 @@
 # coding: utf-8
 
-def heap_sort(ary) :
+def heap_sort(ary):
     n = len(ary)
     # 最后一个非叶子节点
     first = int(n/2-1)
@@ -13,9 +13,9 @@ def heap_sort(ary) :
         max_heapify(ary, 0, end-1)
     return ary
 
+# 最大堆调整：将堆的末端子节点作调整，使得子节点永远小于父节点
+# start为当前需要调整最大堆的位置，end为调整边界
 
-#最大堆调整：将堆的末端子节点作调整，使得子节点永远小于父节点
-#start为当前需要调整最大堆的位置，end为调整边界
 def max_heapify(ary, start, end):
     root = start
     while True:
@@ -33,3 +33,5 @@ def max_heapify(ary, start, end):
             root = child
         else:
             break
+
+print heap_sort([3,2,1,4])
