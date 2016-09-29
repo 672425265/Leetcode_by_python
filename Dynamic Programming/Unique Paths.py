@@ -21,9 +21,11 @@ class Solution(object):
         """
         if m == 0 or n == 0:
             return 0
-        sum = [([0] * n) for i in range((m))]
+        sum = [[0] * n for i in range(m)]
+        # init
         for i in range(m):
             sum[i][0] = 1
+        # init
         for j in range(n):
             sum[0][j] = 1
         for i in range(1, m):

@@ -58,6 +58,40 @@ class Solution2(object):
         minnum = triangle[0][0]
         return minnum
 
+class Solution3(object):
+    def minimumTotal(self, triangle):
+        """
+        :type triangle: List[List[int]]
+        :rtype: int
+        """
+        if triangle is None or triangle[0] is None:
+            return -1
+        if len(triangle) == 0 or len(triangle[0]) == 0:
+            return -1
+        if len(triangle) == 1 and len(triangle[0]) == 1:
+            return triangle[0][0]
 
-solution = Solution2()
+        # state: sum[x][y] = minmum path value from 0,0 to x,y
+        m = len(triangle)
+        sum = [[0] * m for i in range(m)]
+
+        # initialize
+        sum[0][0] = triangle[0][0]
+        for i in xrange(1, m):
+            sum[i][0] = sum[i-1][0] + triangle[i][0]
+            sum[i][i] = sum[i-1][i-1] + triangle[i][i]
+
+        # top down
+        for i in xrange(1, m):
+            for j in xrange(1, i):
+                sum[i][j] = min(sum[i-1][j], sum[i-1][j-1]) + triangle[i][j]
+
+        # answer
+        best = sum[m-1][0]
+        for i in xrange(1, m):
+            best = min(best, sum[m-1][i])
+
+        return best
+
+solution = Solution3()
 print solution.minimumTotal([[2], [3, 4], [6, 5, 7], [4, 1, 8, 3]])
