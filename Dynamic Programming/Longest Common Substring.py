@@ -40,3 +40,8 @@ class Solution2:
 
 solution = Solution2()
 print solution.longestCommonSubstring("abcd","abc")
+
+'''
+1. 状态
+2.
+'''
