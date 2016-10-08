@@ -45,3 +45,18 @@ class Solution(object):
         if root is not None:
             return self.search(root, 0)
         return 0
+
+class Solution2(object):
+    def dfs(self, root, isLeft):
+        if root is None:
+            return 0
+        if root.left is None and root.right is None and isLeft:
+            return root.val
+        return self.dfs(root.left, True) + self.dfs(root.right, False)
+
+    def sumOfLeftLeaves(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        return self.dfs(root, False)
