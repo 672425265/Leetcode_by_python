@@ -16,6 +16,20 @@ The return format had been changed to zero-based indices.
 Please read the above updated description carefully.
 '''
 
+'''
+Idea:
+
+if (考虑A[i]和A[j]满足某个条件)
+    j--;
+    do something
+else if (考虑A[i]和A[j]不满足某个条件)
+    i++;
+    do something
+else
+    do something
+    i++ or j--
+'''
+
 
 class Solution(object):
     def twoSum(self, nums, target):
