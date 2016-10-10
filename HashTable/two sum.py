@@ -24,6 +24,7 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
+        # hashmap 存放nums中每个值出现的位置
         hashmap = dict()
         for i in xrange(0, len(nums)):
             if target - nums[i] in hashmap:
