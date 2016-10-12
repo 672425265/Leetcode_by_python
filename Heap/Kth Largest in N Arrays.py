@@ -52,3 +52,11 @@ class Solution(object):
 solution = Solution()
 print solution.KthInArrays([[10, 9, 8, 5], [15, 12, 11, 7],
                             [17, 9, 7, 6]], 4)
+
+'''
+第二层考法,
+如果数组很大,一台机器放不下怎么办
+解法:
+归并的思想,
+先每个数组排序,再归并取前K个,每一层都这样
+'''
