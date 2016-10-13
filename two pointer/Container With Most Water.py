@@ -14,7 +14,6 @@ example:
 给出[1,3,2], 最大的储水面积是2.
 '''
 
-
 class Solution(object):
     def maxArea(self, height):
         """
