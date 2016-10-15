@@ -110,7 +110,7 @@ class Solution3(object):
         self.n = len(grid[0])
         if self.n == 0:
             return 0
-        visit = [[False for i in range(self.n)]for j in range(self.m)]
+        visit = [[False for i in range(self.n)] for j in range(self.m)]
         ans = 0
         for i in xrange(self.m):
             for j in xrange(self.n):
