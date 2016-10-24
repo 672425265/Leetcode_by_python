@@ -49,5 +49,3 @@ class Solution(object):
         root.right = self.dfs(rootPos + 1, postLeft + rootPos - inLeft, len - 1 - (rootPos - inLeft))
         return root
 
-solution = Solution()
-print solution.buildTree()
