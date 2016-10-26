@@ -26,7 +26,7 @@ class Solution(object):
         right = r
         pivot = nums[left]
         while left < right:
-            while left < right and nums[right] >= pivot:
+            while left < right and nums[right] > pivot:
                 right -= 1
             nums[left] = nums[right]
             while left < right and nums[left] <= pivot:
