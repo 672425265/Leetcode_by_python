@@ -39,6 +39,6 @@ class Solution(object):
         return sb
 
 solution = Solution()
-print solution.multiply("12","11")
+print solution.multiply("8","8")
 
 
