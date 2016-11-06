@@ -27,4 +27,4 @@ class Solution:
         return res[len(A)][m]
 
 solution = Solution()
-print solution.backPackII(10,[2,3,5,7],[1,5,2,4])
+print solution.backPackII(10,[2,2,5,7],[1,5,2,4])
