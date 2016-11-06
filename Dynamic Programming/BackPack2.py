@@ -15,6 +15,7 @@ class Solution:
     # @param A & V: Given n items with size A[i] and value V[i]
     # @return: The maximum value
     def backPackII(self, m, A, V):
+        # f[i][j]: 表示前 i 个物品当中选一些物品组成容量为 j 的最大价值
         res = [[0] * (m+1) for i in range(len(A)+1)]
         res[0][0] = 0
         for i in range(1, len(A) + 1):
