@@ -13,10 +13,6 @@ Note:
 
 class Solution(object):
     def findDuplicate(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
         low = 0
         high = len(nums) - 1
         mid = (high + low) / 2
@@ -35,11 +31,40 @@ class Solution(object):
             mid = (high + low) / 2
         return high
 
+class Solution2(object):
+    def findDuplicate(self, nums):
+        start = 0
+        end = len(nums)
+        nums.sort()
+        while start + 1 < end:
+            mid = (start + end) / 2
+            if nums[mid] > mid:
+                start = mid
+            else:
+                end = mid
+        return end
+
+class Solution3(object):
+    def findDuplicate(self, nums):
+        slow = 0
+        fast = 0
+        while True:
+            slow = nums[slow]
+            fast = nums[nums[fast]]
+            if slow == fast:
+                break
+        finder = 0
+        while True:
+            slow = nums[slow]
+            finder = nums[finder]
+            if slow == finder:
+                return slow
+
 '''
 Test:
 nums:[1,2,2,3]
 '''
-nums = [1, 3, 3, 2]
+nums = [1, 2, 3, 3, 3]
 solution = Solution()
 index = solution.findDuplicate(nums)
 print(index)
