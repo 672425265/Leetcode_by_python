@@ -18,6 +18,11 @@ The two tuples are:
 2. (1, 1, 0, 0) -> A[1] + B[1] + C[0] + D[0] = 2 + (-1) + (-1) + 0 = 0
 '''
 
+'''
+利用字典cnt，将A，B中各元素（笛卡尔积）的和进行分类计数。
+将C，D中各元素（笛卡尔积）和的相反数在cnt中的值进行累加，即为答案。
+'''
+
 from collections import defaultdict
 
 class Solution(object):
