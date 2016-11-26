@@ -23,6 +23,11 @@ Output: "0"
 Explanation: Remove all the digits from the number and it is left with nothing which is 0.
 '''
 
+'''
+解法I 利用栈（Stack）数据结构
+
+使得栈中的数字尽可能保持递增顺序。
+'''
 class Solution(object):
     def removeKdigits(self, num, k):
         """
