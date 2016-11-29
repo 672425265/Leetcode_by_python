@@ -21,6 +21,14 @@ s = "3[a2[c]]", return "accaccacc".
 s = "2[abc]3[cd]ef", return "abcabccdcdcdef".
 '''
 
+'''
+利用栈（Stack）数据结构。
+
+当出现左括号时，将字符串压栈。
+
+当出现右括号时，将字符串弹栈，并重复响应次数，累加至新的栈顶元素。
+'''
+
 class Solution(object):
     def decodeString(self, s):
         """
