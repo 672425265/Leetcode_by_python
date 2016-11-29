@@ -42,8 +42,7 @@ class Solution(object):
             elif c == ']':
                 tmp = cur
                 cur = strStack.pop()
-                for i in range(intStack.pop(), 0, -1):
-                    cur += tmp
+                cur += tmp * intStack.pop()
             else:
                 cur += c
         return cur
