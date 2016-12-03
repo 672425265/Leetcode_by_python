@@ -28,6 +28,12 @@ Given a particular n ≥ 1, find out how much money you need to have to guarante
 '''
 状态转移方程：
 dp[i][j] = min(k + max(dp[i][k - 1], dp[k + 1][j]))
+
+那么我们需要建立一个二维的dp数组，其中dp[i][j]表示从数字i到j之间猜中任意一个数字最少需要花费的钱数，
+那么我们需要遍历每一段区间[j, i]，维护一个全局最小值global_min变量，然后遍历该区间中的每一个数字，
+计算局部最大值local_max = k + max(dp[j][k - 1], dp[k + 1][i])，这个正好是将该区间在每一个位置都分为两段，
+然后取当前位置的花费加上左右两段中较大的花费之和为局部最大值，然后更新全局最小值，
+最后在更新dp[j][i]的时候看j和i是否是相邻的，相邻的话赋为i，否则赋为global_min
 '''
 import sys
 
