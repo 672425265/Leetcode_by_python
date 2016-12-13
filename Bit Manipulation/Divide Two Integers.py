@@ -18,22 +18,26 @@ class Solution(object):
         :type divisor: int
         :rtype: int
         """
-        INT_MAX = 2147483647
-        if divisor == 0:
-            return INT_MAX
-        neg = dividend > 0 and divisor < 0 or dividend < 0 and divisor > 0
-        a, b = abs(dividend), abs(divisor)
-        ans, shift = 0, 31
-        while shift >= 0:
-            if a >= b << shift:
-                a -= b << shift
-                ans += 1 << shift
-            shift -= 1
-        if neg:
-            ans -= ans
-        if ans > INT_MAX:
-            return INT_MAX
-        return ans
+        MAX_INT = 2147483647
+        sign = 1
+        if dividend >= 0 and divisor < 0 or dividend <= 0 and divisor > 0:
+            sign = -1
+        dividend = abs(dividend)
+        divisor = abs(divisor)
+        result = 0
+        current = divisor
+        currentResult = 1
+        while current <= dividend:
+            current <<= 1
+            currentResult <<= 1
+        while divisor <= dividend:
+            current >>= 1
+            currentResult >>= 1
+            if current <= dividend:
+                dividend -= current
+                result += currentResult
+        return min(sign * result, MAX_INT)
+
 
 solution = Solution()
-print solution.divide(10, 2)
+print solution.divide(10, 5)
