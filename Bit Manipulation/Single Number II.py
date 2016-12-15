@@ -26,6 +26,12 @@ every element appears three times except for one. Find that single one.
 #     }
 # }
 
+'''
+ones 代表第ith 位只出现一次的掩码变量
+twos 代表第ith 位只出现两次次的掩码变量
+threes 代表第ith 位只出现三次的掩码变量
+'''
+
 class Solution:
     def singleNumber(self, A):
         one = 0; two = 0; three = 0
