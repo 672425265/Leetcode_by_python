@@ -29,6 +29,8 @@ class Solution(object):
         :rtype: bool
         """
         m, n = len(matrix), len(matrix[0])
+        if n == 0:
+            return False
         i, j = m-1, 0
         start = matrix[i][j]
         if target == start:
