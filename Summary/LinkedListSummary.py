@@ -39,19 +39,24 @@ class Solution:
             newhead = preCur
         return newhead
 
-    def getKth(self, head, k):
+    def getLastKth(self, head, k):
         if k == 0 or head is None:
             return None
         quick = head
         slow = head
+
         while k > 1 and quick is not None:
             quick = quick.next
+            k -= 1
 
+        if k > 1 or quick is None:
+            return None
 
+        while quick.next is not None:
+            quick = quick.next
+            slow = slow.next
 
-
-
+        return slow
 
 a = Solution()
-a.reverse(head)
-print a.printList(n2)
+print a.getLastKth(head, 2).val
