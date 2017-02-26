@@ -29,5 +29,5 @@ class Solution:
         return -1
 
 solution = Solution()
-ans  = solution.binarySearch([1,3,3,1], 3)
+ans = solution.binarySearch([11, 27, 28, 33], 28)
 print ans
