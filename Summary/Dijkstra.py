@@ -36,12 +36,12 @@ def Dijkstra(G, v0, INF=999):
 
         new = INF  # 从剩下的未确定点中选择最小距离点作为新的扩散点
         for v in dis.keys():
-            if v in book: continue
+            if v in book:
+                continue
             if dis[v] < new:
                 new = dis[v]
                 minv = v
     return dis
-
 
 dis = Dijkstra(G, v0=1)
 print dis.values()
