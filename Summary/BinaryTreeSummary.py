@@ -24,14 +24,38 @@ class Solution(object):
             return 0
         else:
             return self.getNodeSum(root.left) + self.getNodeSum(root.right) + 1
+
+    def maxDepthRec(self, root):
+        if root is None:
+            return 0
+        left = self.maxDepthRec(root.left)
+        right = self.maxDepthRec(root.right)
+        return max(left, right) + 1
+
     def maxDepth(self, root):
         if root is None:
             return 0
-        left = self.maxDepth(root.left)
-        right = self.maxDepth(root.right)
-        return max(left, right) + 1
-
+        depth = 0
+        currentLevelNodes = 1
+        nextLevelNodes = 0
+        queue = []
+        queue.append(root)
+        while len(queue) > 0:
+            cur = queue.pop()
+            currentLevelNodes -= 1
+            if cur.left is not None:
+                queue.append(cur.left)
+                nextLevelNodes += 1
+            if cur.right is not None:
+                queue.append(cur.right)
+                nextLevelNodes += 1
+            if currentLevelNodes == 0:
+                depth += 1
+                currentLevelNodes = nextLevelNodes
+                nextLevelNodes = 0
+        return depth
 
 a = Solution()
-print a.getNodeSum(root)
+# print a.getNodeSum(root)
+print a.maxDepthRec(root)
 print a.maxDepth(root)
