@@ -20,11 +20,6 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
-class ResultType(object):
-    def __init__(self, is_bst, maxValue, minValue):
-        self.is_bst = is_bst
-        self.maxValue = maxValue
-        self.minValue = minValue
 
 class Solution(object):
     def isValidBST(self, root):
@@ -32,45 +27,16 @@ class Solution(object):
         :type root: TreeNode
         :rtype: bool
         """
-        result = self.validate(root)
-        return result.is_bst
-
-    def validate(self, root):
         if root is None:
-            return ResultType(True, -sys.maxint - 1, sys.maxint)
-        left = self.validate(root.left)
-        right = self.validate(root.right)
+            return True
+        return self.dfs(root, -1 * sys.maxint, sys.maxint)
 
-        if left.is_bst == False or right.is_bst == False:
-            return ResultType(False, 0, 0)
-
-        if (root.left is not None and left.maxValue >= root.val) \
-                or (root.right is not None and right.minValue <= root.val):
-            return ResultType(False, 0, 0)
-
-        return ResultType(True, max(root.val, right.maxValue)
-                          , min(root.val, left.minValue))
-
-class Solution2:
-    """
-    @param root: The root of binary tree.
-    @return: True if the binary tree is BST, or false
-    """
-    def isValidBST(self, root):
-        self.lastVal = None
-        self.isBST = True
-        self.validate(root)
-        return self.isBST
-
-    def validate(self, root):
+    def dfs(self, root, low, up):
         if root is None:
-            return
-        self.validate(root.left)
-        if self.lastVal is not None and self.lastVal >= root.val:
-            self.isBST = False
-            return
-        self.lastVal = root.val
-        self.validate(root.right)
+            return True
+        if root.val >= up or root.val <= low:
+            return False
+        return self.dfs(root.left, low, root.val) and self.dfs(root.right, root.val, up)
 
 
 root = TreeNode(2)
