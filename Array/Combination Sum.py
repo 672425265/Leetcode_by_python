@@ -15,49 +15,33 @@ A solution set is:
 ]
 '''
 
-class Solution(object):
-    def dfs(self, candidates, target, path, index, result):
-        if target == 0:
-            result.append(path + [])
-            return
+class Solution3(object):
+    def combinationSum(self, candidates, target):
+        """
+        :type candidates: List[int]
+        :type target: int
+        :rtype: List[List[int]]
+        """
+        res = []
+        if candidates is None:
+            return res
+        path = []
+        candidates.sort()
+        self.dfs(res, 0, target, path, res)
+        return res
 
-        prev = -1
+    def dfs(self, candidates, index, target, path, res):
+        if target == 0:
+            res.append([] + path)
+            return
         for i in range(index, len(candidates)):
             if candidates[i] > target:
                 break
-            # 去重
-            if prev != -1 and prev == candidates[i]:
+            if i != index and candidates[i] == candidates[i - 1]:
                 continue
             path.append(candidates[i])
-            self.dfs(candidates, target - candidates[i], path, i, result)
+            self.dfs(candidates, i, target - candidates[i], path, res)
             path.pop()
-            prev = candidates[i]
 
-    def combinationSum(self, candidates, target):
-        result = []
-        if candidates is None:
-            return None
-        candidates.sort()
-        path = []
-        self.dfs(candidates, target, path, 0, result)
-        return result
-
-class Solution2:
-    ret = []
-    def combinationSum(self, candidates, target):
-        candidates = list(set(candidates))
-        candidates.sort()
-        self.DFS(candidates, target, 0, [])
-        return self.ret
-
-    def DFS(self, candidates, target, start, valuelist):
-        length = len(candidates)
-        if target == 0:
-            return self.ret.append(valuelist)
-        for i in range(start, length):
-            if target < candidates[i]:
-                return
-            self.DFS(candidates, target - candidates[i], i, valuelist + [candidates[i]])
-
-solution = Solution2()
+solution = Solution3()
 print solution.combinationSum([2,2,6,7], 6)
