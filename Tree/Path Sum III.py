@@ -68,4 +68,4 @@ class Solution2(object):
         """
         if root is None:
             return 0
-        return self.dfs(root, sum) + self.pathSum(root.left, sum) + self.pathSum()
+        return self.dfs(root, sum) + self.pathSum(root.left, sum) + self.pathSum(root.right, sum)

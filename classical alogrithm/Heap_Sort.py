@@ -1,6 +1,7 @@
 # coding: utf-8
 
-def heap_sort(arr):
+def heap_sort(arr, k):
+    top = k
     n = len(arr)
     # 最后一个非叶子节点
     first = int(n/2-1)
@@ -9,9 +10,13 @@ def heap_sort(arr):
         max_heapify(arr, start, n - 1)
     for end in range(n-1, 0, -1):
         # 堆排，将大根堆转换成有序数组
-        arr[end], arr[0] = arr[0], arr[end]
-        max_heapify(arr, 0, end - 1)
-    return arr
+        if k > 0:
+            arr[end], arr[0] = arr[0], arr[end]
+            max_heapify(arr, 0, end - 1)
+            k -= 1
+        else:
+            break
+    return arr[n - top:]
 
 # 最大堆调整：将堆的末端子节点作调整，使得子节点永远小于父节点
 # start为当前需要调整最大堆的位置，end为调整边界
@@ -34,4 +39,4 @@ def max_heapify(arr, start, end):
         else:
             break
 
-print heap_sort([3, 1, 4, 9, 6, 7, 5, 8, 2, 10] )
+print heap_sort([3, 1, 4, 9, 6, 7, 5, 8, 2, 10], 3)

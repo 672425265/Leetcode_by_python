@@ -25,7 +25,7 @@ class Solution(object):
 
         n = len(s)
         cansegment = [False] * (n+1)
-        cansegment[0] =       maxlength = max([len(w) for w in wordDict])
+        cansegment[0] = maxlength = max([len(w) for w in wordDict])
         for i in xrange(1, n+1):
             lastwordlength = 1
             while lastwordlength <= maxlength and lastwordlength <= i:
@@ -38,7 +38,6 @@ class Solution(object):
                     cansegment[i] = True
                     break
                 lastwordlength += 1
-
         return cansegment[n]
 
 

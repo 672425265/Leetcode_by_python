@@ -20,6 +20,7 @@ class Solution(object):
         map = dict()
         j = 0
         ans = 0
+        stack = []
         for i in range(0, len(s)):
             while j < len(s) and not map.has_key(s[j]):
                 map[s[j]] = map.get(s[j], 1)
