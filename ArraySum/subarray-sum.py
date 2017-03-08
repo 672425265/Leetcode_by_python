@@ -25,4 +25,4 @@ class Solution:
         return
 
 solution = Solution()
-print solution.subarraySum([-3, 1, 2, -3, 4])
+print solution.subarraySum([-6, 1, 2, -3, 4])

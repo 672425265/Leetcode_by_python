@@ -35,13 +35,13 @@ class Solution(object):
             s.append(root)
             root = root.left
         while len(s) > 0:
-            curr = s.pop()
+            cur = s.pop()
             k -= 1
             if k == 0:
-                return curr.val
-            if curr.right is not None:
-                curr = curr.right
-                while curr is not None:
-                    s.append(curr)
-                    curr = curr.left
+                return cur.val
+            if cur.right is not None:
+                cur = cur.right
+                while cur is not None:
+                    s.append(cur)
+                    cur = cur.left
         return 0

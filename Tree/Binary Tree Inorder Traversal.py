@@ -44,8 +44,7 @@ class Solution2(object):
             while cur is not None:
                 stack.append(cur)
                 cur = cur.left
-            cur = stack[-1]
-            stack.pop()
+            cur = stack.pop()
             result.append(cur.val)
             cur = cur.right
         return result

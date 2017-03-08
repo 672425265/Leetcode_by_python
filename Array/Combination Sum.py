@@ -27,7 +27,7 @@ class Solution3(object):
             return res
         path = []
         candidates.sort()
-        self.dfs(res, 0, target, path, res)
+        self.dfs(candidates, 0, target, path, res)
         return res
 
     def dfs(self, candidates, index, target, path, res):
