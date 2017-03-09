@@ -44,6 +44,7 @@ class Solution(object):
         :rtype: int
         """
         cnt = Counter(s)
+        s = {}
         filters = [x for x in cnt if cnt[x] < k]
         if not filters:
             return len(s)

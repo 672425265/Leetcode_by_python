@@ -45,4 +45,4 @@ class Solution(object):
         return self.generate(1, n)
 
 solution = Solution()
-print solution.generateTrees(3)
+print solution.generateTrees(4)

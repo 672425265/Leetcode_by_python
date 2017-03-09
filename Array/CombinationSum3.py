@@ -37,4 +37,4 @@ class Solution(object):
         return ans
 
 solution = Solution()
-print solution.combinationSum3(3)
+print solution.combinationSum3(3, 10)
