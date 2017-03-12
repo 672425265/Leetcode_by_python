@@ -30,9 +30,9 @@ class Solution:
         result = []
         self.preorderTraversal2(root, result)
         return result
-    result = []
+
     def preorderTraversal2(self, root, result):
-        if root == None:
+        if root is None:
             return
         result.append(root.val)
         self.preorderTraversal2(root.left, result)
