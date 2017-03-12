@@ -37,8 +37,6 @@ class Solution(object):
             else:
                 return root
 
-
-
     def isnode(self, mother, child):
         if mother:
             if mother == child:
