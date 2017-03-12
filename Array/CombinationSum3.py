@@ -22,19 +22,21 @@ class Solution(object):
         :type n: int
         :rtype: List[List[int]]
         """
-        ans = []
-        stack = [(0, 1, [])]
-        while stack:
-            total, start, comb = stack.pop()
-            if total == n and len(comb) == k:
-                ans.append(comb)
-                continue
-            for i in range(start, 10):
-                tmp_total = total + i
-                if tmp_total > n:
-                    break
-                stack.append((tmp_total, i + 1, comb + [i]))
-        return ans
+        path = []
+        res = []
+        self.dfs(k, n, path, res, 1)
+        return res
+
+    def dfs(self, k, n, path, res, start):
+        if n == 0 and k == 0:
+            res.append([] + path)
+            return
+        for i in range(start, 10):
+            if i > n:
+                break
+            path.append(i)
+            self.dfs(k - 1, n - i, path, res, i + 1)
+            path.pop()
 
 solution = Solution()
 print solution.combinationSum3(3, 10)

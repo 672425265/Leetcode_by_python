@@ -30,7 +30,7 @@ class Solution(object):
                 head2 = head2.next
             tail = tail.next
 
-        if head1 is not  None:
+        if head1 is not None:
             tail.next = head1
         else:
             tail.next = head2
