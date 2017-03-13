@@ -18,60 +18,7 @@ If nums = [1,2,3], a solution is:
 '''
 
 class Solution(object):
-    def subsets(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
-        self.results = []
-        self.search(sorted(nums), [], 0)
-        return self.results
 
-    def search(self, nums, S, index):
-        if index == len(nums):
-            self.results.append(S)
-            return
-        self.search(nums, S + [nums[index]], index + 1)
-        self.search(nums, S, index + 1)
-
-
-class Solution2(object):
-    def subsets(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
-        result = [[]]
-        if nums is None or len(nums) == 0:
-            return result
-        nums.sort()
-        for num in nums:
-            result += [item + [num] for item in result]
-        return result
-
-
-class Solution3(object):
-    def subsets(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
-        result = []
-        if nums is None or len(nums) == 0:
-            return result
-        nums.sort()
-        self.subsetshelper([], nums, 0, result)
-        return result
-
-    def subsetshelper(self, list, nums, pos, result):
-        result.append([] + list)
-        for i in xrange(pos, len(nums)):
-            list.append(nums[i])
-            self.subsetshelper(list, nums, i + 1, result)
-            list.pop()
-
-
-class Solution4(object):
     def subsets(self, nums):
         if nums is None or len(nums) == 0:
             return []
@@ -88,5 +35,5 @@ class Solution4(object):
             self.dfs(nums, i + 1, list_temp, ret)
             list_temp.pop()
 
-solution = Solution3()
+solution = Solution()
 print solution.subsets([1,2,3])

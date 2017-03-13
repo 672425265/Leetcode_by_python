@@ -28,13 +28,12 @@ class Solution(object):
         if index >= len(candidates) or sum < 0:
             return
 
-        prev = -1
         for i in xrange(index, len(candidates)):
-            if candidates[i] != prev:
-                solution.append(candidates[i])
-                self.helper(rst, solution, candidates, sum - candidates[i], i + 1)
-                prev = candidates[i]
-                solution.pop()
+            if i != index and candidates[i] == candidates[i - 1]:
+                continue
+            solution.append(candidates[i])
+            self.helper(rst, solution, candidates, sum - candidates[i], i + 1)
+            solution.pop()
 
     def combinationSum2(self, candidates, target):
         """

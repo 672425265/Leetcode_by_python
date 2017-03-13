@@ -44,4 +44,4 @@ class Solution3(object):
             path.pop()
 
 solution = Solution3()
-print solution.combinationSum([2,2,6,7], 6)
+print solution.combinationSum([2,6,6,7], 6)
