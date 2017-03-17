@@ -1,24 +1,22 @@
 def quick(nums):
-    quickSort(nums, 0, len(nums) - 1)
-    return nums
+    return quickSort(nums, 0, len(nums) - 1)
 
 def quickSort(nums, left, right):
-    l, r = left, right
-    if l >= r:
+    if left >= right:
         return nums
-    pivot = (left + right) / 2
-    while l <= r:
-        while nums[l] < nums[pivot]:
-            l += 1
-        while nums[r] > nums[pivot]:
+    pivot = nums[left]
+    l, r = left, right
+    while l < r:
+        while l < r and nums[r] >= pivot:
             r -= 1
-        if l <= r:
-            nums[l], nums[r] = nums[r], nums[l]
+        while l < r and nums[l] <= pivot:
             l += 1
-            r -= 1
-    quickSort(nums, left, r)
-    quickSort(nums, l, right)
+        nums[l], nums[r] = nums[r], nums[l]
+    nums[left], nums[l] = nums[l], nums[left]
+    quickSort(nums, left, l - 1)
+    quickSort(nums, r + 1, right)
+    return nums
 
-nums = [2,9,3,1,6,9,6]
+nums = [19,-10,-2,40,3,36,57,25,66,51,5,40,-8,43,9,-5,0,4]
 quick(nums)
 print nums
