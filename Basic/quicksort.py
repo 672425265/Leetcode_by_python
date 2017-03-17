@@ -6,15 +6,17 @@ def quickSort(nums, left, right):
         return nums
     pivot = nums[left]
     l, r = left, right
-    while l < r:
-        while l < r and nums[r] >= pivot:
+    while l <= r:
+        while l <= r and nums[r] > pivot:
             r -= 1
-        while l < r and nums[l] <= pivot:
+        while l <= r and nums[l] < pivot:
             l += 1
-        nums[l], nums[r] = nums[r], nums[l]
-    nums[left], nums[l] = nums[l], nums[left]
-    quickSort(nums, left, l - 1)
-    quickSort(nums, r + 1, right)
+        if l <= r:
+            nums[l], nums[r] = nums[r], nums[l]
+            l += 1
+            r -= 1
+    quickSort(nums, left, r)
+    quickSort(nums, l, right)
     return nums
 
 nums = [19,-10,-2,40,3,36,57,25,66,51,5,40,-8,43,9,-5,0,4]
