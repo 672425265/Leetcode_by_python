@@ -39,7 +39,7 @@ class Solution2:
         return maxvalue
 
 solution = Solution2()
-print solution.longestCommonSubstring("abcd","abc")
+print solution.longestCommonSubstring("abcd","eacb")
 
 '''
 1. 状态

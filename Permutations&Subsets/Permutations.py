@@ -22,9 +22,10 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         result = []
+        path = []
         if nums is None or len(nums) == 0:
             return result
-        self.subsetshelper([], nums, result)
+        self.subsetshelper(path, nums, result)
         return result
 
     def subsetshelper(self, list, nums, result):
