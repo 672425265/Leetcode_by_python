@@ -29,7 +29,7 @@ class Solution(object):
             while left < right and nums[right] > pivot:
                 right -= 1
             nums[left] = nums[right]
-            while left < right and nums[left] <= pivot:
+            while left < right and nums[left] < pivot:
                 left += 1
             nums[right] = nums[left]
 

@@ -16,10 +16,10 @@ class Solution:
             return 0
 
         start, end = 0, len(nums) - 1
-        target = nums[-1]
+        # target = nums[end]
         while start + 1 < end:
             mid = (start + end) / 2
-            if nums[mid] <= target:
+            if nums[mid] <= nums[end]:
                 end = mid
             else:
                 start = mid
@@ -43,4 +43,4 @@ class Solution:
             return nums[end]
 
 solution = Solution()
-print solution.findMin2([4,5,6,7,0,1,2])
+print solution.findMin([4,5,6,7,1,2,3])

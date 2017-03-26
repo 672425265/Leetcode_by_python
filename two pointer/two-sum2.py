@@ -23,12 +23,14 @@ class Solution(object):
         ans = 0
         while left < right:
             if nums[left] + nums[right] > target:
-                ans += (right - left)
+                right -= 1
+            elif nums[left] + nums[right] == target:
+                ans += 1
                 right -= 1
             else:
                 left += 1
         return ans
 
 solution = Solution()  
-print solution.twoSum([2, 7, 11, 15], 24)
+print solution.twoSum([2, 7, 7, 15], 9)
 
