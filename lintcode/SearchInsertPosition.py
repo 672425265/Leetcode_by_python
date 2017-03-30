@@ -65,8 +65,7 @@ class Solution2(object):
 
 solution = Solution()
 solution2 = Solution2()
-ans = solution.searchInsert([1,1,1,1,3], 1)
-ans2 = solution2.searchInsert([1,1,1,1,3], 1)
+ans = solution.searchInsert([2], 1)
+# ans2 = solution2.searchInsert([1,1,1,1,3], 1)
 print ans
-print ans2
 

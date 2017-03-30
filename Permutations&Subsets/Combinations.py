@@ -5,7 +5,6 @@ combinations of k numbers out of 1 ... n.
 
 For example,
 If n = 4 and k = 2, a solution is:
-
 [
   [2,4],
   [3,4],
