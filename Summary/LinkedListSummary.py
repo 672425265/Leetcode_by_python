@@ -103,6 +103,7 @@ class Solution:
 
         return mergeHead
 
+
 a = Solution()
 new = a.mergeTwoSortList(head, head2)
 a.printList(new)
