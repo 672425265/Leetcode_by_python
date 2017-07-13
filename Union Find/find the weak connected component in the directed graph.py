@@ -29,7 +29,6 @@ class DirectedGraphNode:
         self.label = x
         self.neighbors = []
 
-
 class UnionFind:
     def __init__(self, labels):
         self.father = {}

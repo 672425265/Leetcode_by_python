@@ -24,7 +24,7 @@ class Solution:
             print head.val
             head = head.next
 
-    def getLenght(self, head):
+    def getLenghth(self, head):
         length = 0
         if head is None:
             return 0
@@ -37,12 +37,11 @@ class Solution:
         if head is None or head.next is None:
             return head
         newhead = None
-        cur = head
-        while cur is not None:
-            preCur = cur
-            cur = cur.next
-            preCur.next = newhead
-            newhead = preCur
+        while head is not None:
+            temp = head.next
+            head.next = newhead
+            newhead = head
+            head = temp
         return newhead
 
     def getLastKth(self, head, k):
@@ -105,5 +104,8 @@ class Solution:
 
 
 a = Solution()
-new = a.mergeTwoSortList(head, head2)
+# new = a.mergeTwoSortList(head, head2)
+a.printList(head)
+print "-----"
+new = a.reverse(head)
 a.printList(new)

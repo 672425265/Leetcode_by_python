@@ -43,11 +43,11 @@ class Solution(object):
         return count
 
     def find(self, father, node):
-        while node != father[node]:
-            father[node] = father[father[node]]
-            node = father[node]
-        return node
+        parent = father[node]
+        while parent != father[parent]:
+            parent = father[parent]
+        return parent
 
 
 solution = Solution()
-print solution.countComponents(5, [[0, 1], [1, 2], [2, 3], [3, 4]])
+print solution.countComponents(5, [[0, 1], [1, 2], [2, 0], [3, 4]])
