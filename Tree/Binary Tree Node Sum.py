@@ -13,9 +13,19 @@ class Solution(object):
         return root.val + self.nodeSum(root.left) + self.nodeSum(root.right)
 
 
+class Solution2(object):
+    def nodeSum(self, root):
+        if root is None:
+            return 0
+        leftSum = self.nodeSum(root.left)
+        rightSum = self.nodeSum(root.right)
+
+        return root.val + leftSum + rightSum
+
+
 if __name__ == "__main__":
     root = TreeNode(2)
     root.left = TreeNode(1)
     root.right = TreeNode(3)
     res = 0
-    print Solution().nodeSum(root)
+    print Solution2().nodeSum(root)
