@@ -20,6 +20,7 @@ return [1,3,2].
 #         self.left = None
 #         self.right = None
 
+
 class Solution(object):
     def inorderTraversal(self, root):
         """
@@ -28,8 +29,8 @@ class Solution(object):
         """
         if root is None:
             return []
-        return self.inorderTraversal(root.left) \
-               + [root.val] + self.inorderTraversal(root.right)
+        return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
+
 
 class Solution2(object):
     def inorderTraversal(self, root):
