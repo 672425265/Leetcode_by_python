@@ -46,6 +46,7 @@ class Solution(object):
             return True
         return self.isSymmetric_2(root.left, root.right)
 
+
 class Solution2(object):
     def isSymmetric_2(self, left, right):
         if not left and not right:
