@@ -7,6 +7,7 @@ Find the minimum element.
 You may assume no duplicate exists in the array.
 '''
 
+
 class Solution:
     # @param nums: a rotated sorted array
     # @return: the minimum number in the array

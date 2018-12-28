@@ -32,6 +32,7 @@ class Solution(object):
         return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
 
 
+
 class Solution2(object):
     def inorderTraversal(self, root):
         """

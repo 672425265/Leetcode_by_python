@@ -8,6 +8,7 @@ If found in the array return its index, otherwise return -1.
 You may assume no duplicate exists in the array.
 '''
 
+
 class Solution(object):
     def search(self, nums, target):
         """

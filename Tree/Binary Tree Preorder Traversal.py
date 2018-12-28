@@ -19,6 +19,7 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
+
 class Solution(object):
     def preorderTraversal(self, root):
         if root is None:
@@ -36,14 +37,12 @@ class Solution(object):
 
 
 class Solution2(object):
-    def traverse(self, root, result):
+    def inorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
         if root is None:
             return []
-        result.append(root.val)
-        self.traverse(root.left, result)
-        self.traverse(root.right, result)
-
-    def preorderTraversal(self, root):
-        result = []
-        self.traverse(root, result)
-        return result
+        return [root.val] + self.inorderTraversal(root.left) \
+               + self.inorderTraversal(root.right)

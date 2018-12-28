@@ -25,6 +25,7 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
+
 class Solution(object):
     def levelOrder(self, root):
         """
@@ -45,6 +46,7 @@ class Solution(object):
                     new_q.append(node.right)
             q = new_q
         return results
+
 
 root = TreeNode(1)
 root.left = TreeNode(2)
